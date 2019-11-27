@@ -1,24 +1,55 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# fishtweet
 
-Things you may want to cover:
+## 概要
 
-* Ruby version
+## 機能
 
-* System dependencies
+## 技術
 
-* Configuration
+## fishtweet DBdesign
 
-* Database creation
+### users
+|Column|Type|Options|
+|------|-----|------|
+|nickname|varchar|null: false, index: true|
+|email|varchar|null: false|
+|avatar|blob||
+|password|varchar|null: false|
+#### Association
+- has_many :articles
+- has_many :comments
 
-* Database initialization
+### articles
+|Column|Type|Options|
+|------|-----|------|
+|body|text|null: false|
+|title|varchar|null: false|
+|description|text||
+|user|references|null: false, foreign_key: true|
+|comment|references|null: false, foreign_key: true|
+#### Association
+- has_many :images
+- has_many :comments
+- belongs_to :user
 
-* How to run the test suite
+### comments
+|Column|Type|Options|
+|------|-----|------|
+|message|text||
+|user|references|null: false, foreign_key: true|
+|article|references|null: false, foreign_key: true|
+#### Association
+- belongs_to :user
+- belongs_to :article
 
-* Services (job queues, cache servers, search engines, etc.)
+### images
+|Column|Type|Options|
+|------|-----|------|
+|image|mediumblob|null: false|
+|article|references|null: false, foreign_key: true|
+#### Association
+- belongs_to :article
 
-* Deployment instructions
-
-* ...
+------------------------
