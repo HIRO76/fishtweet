@@ -1,0 +1,41 @@
+/ ヘッダーここから
+.header-bg.sticky-top
+  .header.navbar
+    = link_to "Fishtweet", root_path, class: "my-2 h3 text-white text-decoration-none" 
+    ul.nav
+      li.nav-item
+        = link_to "ログイン", "#", class: "nav-link text-white" 
+      li.nav-item
+        = link_to "ログアウト", "#", class: "nav-link text-white"
+      li.nav-item 
+        = link_to "記事一覧", "#", class: "nav-link text-white"
+/ ヘッダーここまで
+
+.container.mt-5.
+  = form_with model: @article, local: true do |f|
+    .form-group
+      = f.label :title, 'タイトル'
+      = f.text_field class: 'form-control'
+    .form-group
+      = f.label :text, '釣行データ'
+      = f.text_area :text, class: 'form-control'
+    .form-group
+      = f.label :text, '本文'
+      = f.text_area :text, class: 'form-control'
+    .form-group
+      = f.label :file, '画像'
+      = f.file_field :images, multiple: true, class: 'form-control-file'
+
+/ フッターここから
+.footer-bg
+  .footer.page-footer.font-small.pt-3.fixed-bottom
+    .container
+      ul.list-unstyled.list-inline.text-center.py-3.
+        li.list-inline-item.text-white
+          h5.mb-1.h5 Register for free
+        li.list-inline-item.text-white
+          = link_to "#"
+            .btn.btn-outline-light.btn-lg.rounded-pill POST!
+
+    .footer-copyright.text-center.py-2.text-white.bg-dark © 2019 Copyright
+/ フッターここまで
