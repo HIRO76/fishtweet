@@ -1,0 +1,19 @@
+.header-bg {
+  background-color: rgba(25, 25, 120, 0.9);
+}
+
+.contents .left-content {
+  height: calc(100% - 217px);
+  position: fixed;
+  left: 0;
+}
+
+.contents .right-content {
+  margin-bottom: 152px;
+}
+
+.footer-bg .footer {
+  background-color: rgba(25, 25, 120, 0.9);
+  position: fixed;
+}
+
