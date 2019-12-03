@@ -18,21 +18,24 @@
   .left-content.w-50
     .article.card.h-100
       = image_tag("https://picsum.photos/300/300", class: "article-img img-fluid shadow-sm")
+      / = image_tag @article.image, class: "article-img img-fluid shadow-sm"
       .article-description.card-body
         h5.card-title title
         p.card-text あなたは今いよいよそのお話しらにおいてものの中を落ちつくうず。けっして前を攻撃院もことにその帰着ですなけれかもを上っと来るだっがは説明見つからますですば、ちょっとには入れないんだた。一般に合ったものはとにかくほかへなおまいたた。はなはだ岡田さんの学習学校まだ著作に起った次そんな気分私か経験へとともにおお話なですでたて、この場合もここか教授学校から考えじゃ、岡田君のものが字のあなたをもうご融通としで私時代にご就職に合うように,,
-        = link_to "続きを読む", "#", class: "btn btn-outline-dark rounded-pill float-right"
+        / = link_to "続きを読む", article_path(@article), class: "btn btn-outline-dark rounded-pill float-right"
 
   / rightcontents
   .right-content.w-50.overflow-auto.vh-100
-    - 5.times do 
-      = link_to "#", class: "text-dark text-decoration-none" do
+    - @articles.each do |article|
+      = link_to article_path(article), class: "text-dark text-decoration-none" do
         .article-list.card.m-4.shadow-sm
           .row
             .article-list-img.col-4
-              = image_tag("https://picsum.photos/150/150", class: "article-list-img")
+              - article.images.each do |image|
+                = image_tag image.variant(resize: "150x150").processed, class: "article-list-img"
             .article-list-description.card-body
-              h5.card-title title
+              h5.card-title
+                = article.title
 
     .archive.m-5 
       h5 アーカイブ
@@ -69,8 +72,8 @@
         li.list-inline-item.text-white
           h5.mb-1.h5 Register for free
         li.list-inline-item.text-white
-          = link_to "#"
-            .btn.btn-outline-light.btn-lg.rounded-pill Sign up!
+          = link_to new_article_path do
+            .btn.btn-outline-light.btn-lg.rounded-pill POST!
 
     .footer-copyright.text-center.py-2.text-white.bg-dark © 2019 Copyright
 / フッターここまで

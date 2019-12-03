@@ -10,7 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_27_050326) do
+ActiveRecord::Schema.define(version: 2019_11_29_121101) do
+
+  create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "record_type", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
+    t.datetime "created_at", null: false
+    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
+    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
+  end
+
+  create_table "active_storage_blobs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "key", null: false
+    t.string "filename", null: false
+    t.string "content_type"
+    t.text "metadata"
+    t.bigint "byte_size", null: false
+    t.string "checksum", null: false
+    t.datetime "created_at", null: false
+    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
 
   create_table "articles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "body", null: false
@@ -19,8 +40,6 @@ ActiveRecord::Schema.define(version: 2019_11_27_050326) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id", null: false
-    t.bigint "comment_id", null: false
-    t.index ["comment_id"], name: "index_articles_on_comment_id"
     t.index ["user_id"], name: "index_articles_on_user_id"
   end
 
@@ -47,7 +66,7 @@ ActiveRecord::Schema.define(version: 2019_11_27_050326) do
     t.string "encrypted_password", default: "", null: false
     t.string "nickname", null: false
     t.string "avatar"
-    t.string "password", null: false
+    t.string "password"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -56,7 +75,7 @@ ActiveRecord::Schema.define(version: 2019_11_27_050326) do
     t.index ["nickname"], name: "index_users_on_nickname"
   end
 
-  add_foreign_key "articles", "comments"
+  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "articles", "users"
   add_foreign_key "comments", "articles"
   add_foreign_key "comments", "users"
