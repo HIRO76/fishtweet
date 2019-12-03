@@ -7,11 +7,5 @@ html
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-    / <!-- BootstrapのCSS読み込み -->
-    / = stylesheet_link_tag href: "https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css", rel: "stylesheet", integrity: "sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO", crossorigin: "anonymous"
-    / <!-- jQuery読み込み -->
-    / = javascript_include_tag src: "https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"
-    / <!-- BootstrapのJS読み込み -->
-    / = javascript_include_tag src: "https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js", integrity: "sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy", crossorigin: "anonymous"
   body.vw-100.vh-100
     = yield

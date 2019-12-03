@@ -1,0 +1,43 @@
+/ ヘッダーここから
+.header-bg.sticky-top
+  .header.navbar
+    = link_to "Fishtweet", root_path, class: "my-2 h3 text-white text-decoration-none" 
+    / ul.nav
+    /   li.nav-item
+    /     = link_to "ログイン", "#", class: "nav-link text-white" 
+    /   li.nav-item
+    /     = link_to "ログアウト", "#", class: "nav-link text-white"
+    /   li.nav-item 
+    /     = link_to "記事一覧", "#", class: "nav-link text-white"
+/ ヘッダーここまで
+
+.container.text-center.w-50
+  h2.m-5
+    | ログイン
+  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+    .field.m-3.form-group.form-row
+      = f.label :email
+      br
+      = f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control rounded-pill"
+    .field.m-3.form-group.form-row
+      = f.label :password
+      br
+      = f.password_field :password, autocomplete: "current-password", class: "form-control rounded-pill"
+    - if devise_mapping.rememberable?
+      .field.m-3
+        = f.check_box :remember_me
+        = f.label :remember_me, class: "pl-2"
+    .actions.m-3
+      = f.submit "ログイン", class: "btn btn-outline-primary rounded-pill"
+  = render "devise/shared/links"
+
+/ フッターここから
+.footer-bg
+  .footer.page-footer.font-small.pt-5.fixed-bottom
+    .container
+      ul.list-unstyled.list-inline.text-center.py-3
+        li.list-inline-item.text-white
+          h5.mb-3.h5 enjoy fishing
+
+    .footer-copyright.text-center.py-2.text-white.bg-dark © 2019 Copyright
+/ フッターここまで

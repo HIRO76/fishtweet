@@ -6,9 +6,4 @@ class Article < ApplicationRecord
 
   validates :title, presence: true
   validates :body, presence: true
-
-  # def thumbnail
-  #   if images.count > 1
-
-  # end
 end

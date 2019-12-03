@@ -3,12 +3,14 @@
   .header.navbar
     = link_to "Fishtweet", root_path, class: "my-2 h3 text-white text-decoration-none" 
     ul.nav
-      li.nav-item
-        = link_to "ログイン", "#", class: "nav-link text-white" 
-      li.nav-item
-        = link_to "ログアウト", "#", class: "nav-link text-white"
-      li.nav-item 
-        = link_to "記事一覧", "#", class: "nav-link text-white"
+      - unless user_signed_in? 
+        li.nav-item
+          = link_to "ログイン", new_user_session_path, class: "nav-link text-white" 
+        li.nav-item 
+          = link_to "新規登録", new_user_registration_path, class: "nav-link text-white"
+      - else 
+        li.nav-item
+          = link_to "ログアウト", destroy_user_session_path, class: "nav-link text-white"
 / ヘッダーここまで
 
 
@@ -31,8 +33,8 @@
         .article-list.card.m-4.shadow-sm
           .row
             .article-list-img.col-4
-              - article.images.each do |image|
-                = image_tag image.variant(resize: "150x150").processed, class: "article-list-img"
+              - if article.images.count > 0
+                = image_tag article.images.first.variant(resize: "150x150").processed, class: "article-list-img"  
             .article-list-description.card-body
               h5.card-title
                 = article.title
@@ -70,7 +72,8 @@
     .container
       ul.list-unstyled.list-inline.text-center.py-3.
         li.list-inline-item.text-white
-          h5.mb-1.h5 Register for free
+          h5.mb-1.h5 enjoy fishing
+        / - if user_signed_in?
         li.list-inline-item.text-white
           = link_to new_article_path do
             .btn.btn-outline-light.btn-lg.rounded-pill POST!
