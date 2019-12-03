@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_28_092657) do
+ActiveRecord::Schema.define(version: 2019_11_29_121101) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -40,8 +40,6 @@ ActiveRecord::Schema.define(version: 2019_11_28_092657) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id", null: false
-    t.bigint "comment_id", null: false
-    t.index ["comment_id"], name: "index_articles_on_comment_id"
     t.index ["user_id"], name: "index_articles_on_user_id"
   end
 
@@ -68,7 +66,7 @@ ActiveRecord::Schema.define(version: 2019_11_28_092657) do
     t.string "encrypted_password", default: "", null: false
     t.string "nickname", null: false
     t.string "avatar"
-    t.string "password", null: false
+    t.string "password"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -78,7 +76,6 @@ ActiveRecord::Schema.define(version: 2019_11_28_092657) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "articles", "comments"
   add_foreign_key "articles", "users"
   add_foreign_key "comments", "articles"
   add_foreign_key "comments", "users"
