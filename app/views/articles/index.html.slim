@@ -10,7 +10,7 @@
           = link_to "新規登録", new_user_registration_path, class: "nav-link text-white"
       - else 
         li.nav-item
-          = link_to "ログアウト", destroy_user_session_path, class: "nav-link text-white"
+          = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link text-white"
 / ヘッダーここまで
 
 
@@ -76,7 +76,6 @@
       ul.list-unstyled.list-inline.text-center.py-3.
         li.list-inline-item.text-white
           h5.mb-1.h5 enjoy fishing
-        / - if user_signed_in?
         li.list-inline-item.text-white
           = link_to new_article_path do
             .btn.btn-outline-light.btn-lg.rounded-pill POST!

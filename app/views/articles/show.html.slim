@@ -5,12 +5,12 @@
     ul.nav
       - unless user_signed_in? 
         li.nav-item
-          = link_to "ログイン", "#", class: "nav-link text-white" 
+          = link_to "ログイン", new_user_session_path, class: "nav-link text-white" 
         li.nav-item 
-          = link_to "記事一覧", "#", class: "nav-link text-white"
+          = link_to "記事一覧", new_user_registration_path, class: "nav-link text-white"
       - else
         li.nav-item
-          = link_to "ログアウト", "#", class: "nav-link text-white"
+          = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link text-white"
 / ヘッダーここまで
 
 .container
