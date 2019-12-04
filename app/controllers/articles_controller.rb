@@ -1,9 +1,10 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit]
-  # before_action :move_to_index, except: :index
+  before_action :move_to_index, except: :index
 
   def index
     @articles = Article.limit(10).order(created_at: :desc)
+    @article = Article.limit(1).order(created_at: :desc)
   end
 
   def show
@@ -21,7 +22,6 @@ class ArticlesController < ApplicationController
   def create
     # @article = Article.create(title: article_params[:title], description: article_params[:description], body: article_params[:body], images: article_params[images: []])
     @article = Article.new(article_params)
-    @article.user_id = 1
     if @article.save
       redirect_to @article
     else
@@ -29,15 +29,10 @@ class ArticlesController < ApplicationController
     end
   end
 
-  # def top_image(image)
-  #   # @top_image.article.images.variant(resize: "150x150").processed, class: "article-list-img"
-  #   image = article.images.limit(1)
-  # end
-
   private 
 
   def move_to_index
-    redirect_to root_path
+    redirect_to root_path unless user_signed_in?
   end
 
   def set_article
@@ -45,6 +40,6 @@ class ArticlesController < ApplicationController
   end
 
   def article_params
-    params.require(:article).permit(:title, :description, :body, images: [])
+    params.require(:article).permit(:title, :description, :body, images: []).merge(user_id: current_user.id)
   end
 end

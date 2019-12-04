@@ -18,13 +18,26 @@
 .contents.d-flex.justify-content-end.vh-100
   / leftcontents
   .left-content.w-50
-    .article.card.h-100
-      = image_tag("https://picsum.photos/300/300", class: "article-img img-fluid shadow-sm")
-      / = image_tag @article.image, class: "article-img img-fluid shadow-sm"
-      .article-description.card-body
-        h5.card-title title
-        p.card-text あなたは今いよいよそのお話しらにおいてものの中を落ちつくうず。けっして前を攻撃院もことにその帰着ですなけれかもを上っと来るだっがは説明見つからますですば、ちょっとには入れないんだた。一般に合ったものはとにかくほかへなおまいたた。はなはだ岡田さんの学習学校まだ著作に起った次そんな気分私か経験へとともにおお話なですでたて、この場合もここか教授学校から考えじゃ、岡田君のものが字のあなたをもうご融通としで私時代にご就職に合うように,,
-        / = link_to "続きを読む", article_path(@article), class: "btn btn-outline-dark rounded-pill float-right"
+    - @articles.each do |article|
+      .article.card.h-100
+        - if article.images.count > 0
+          = image_tag article.images.first.variant(resize: "500x400").processed, class: "article-img img-fluid shadow-sm"
+          .article-description.card-body
+            h5.card-title 
+              = article.title
+            p.card-text 
+              = article.body.truncate(250, omission: '・・・')
+            = link_to "続きを読む", article_path(article), class: "btn btn-outline-dark rounded-pill float-right"
+    
+    / .article.card.h-100
+    /   / - if @article.images.count > 0
+    /   / = image_tag @article.images.first.variant(resize: "500x400").processed, class: "article-img img-fluid shadow-sm"
+    /   .article-description.card-body
+    /     h5.card-title 
+    /       = @article.title  
+    /     p.card-text 
+    /       = @article.body.truncate(250, omission: '・・・')
+    /     = link_to "続きを読む", article_path(article), class: "btn btn-outline-dark rounded-pill float-right"
 
   / rightcontents
   .right-content.w-50.overflow-auto.vh-100
@@ -52,7 +65,7 @@
           li.list-group-item 2019/7
 
     .embed-responsive.embed-responsive-16by9.mb-5
-      iframe.embed-responsive-item src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" 
+      iframe.embed-responsive-item src="https://www.youtube.com/embed/eo_s9aynXSw?rel=0" 
 
     .right-content-footer.border-top.mx-auto.mb-3.w-75.d-flex.justify-content-around
       = link_to "#" 
