@@ -19,13 +19,13 @@
       - @article.images.each do |image|
           = image_tag image.variant(resize: "700x500").processed
   .container.article-index.mb-5.w-75.p-0
-    .article-title.mb-2 
-      = @article.title
-    .article-description.mb-2 
+    .article-title.mb-2.py-2 
+      h3
+        = @article.title
+    .article-description.mb-2.py-2
       = @article.description
-    .article-body 
+    .article-body.py-2
       = @article.body
-
 
 / フッターここから
 .footer-copyright.text-center.py-2.text-white.bg-dark.fixed-bottom © 2019 Copyright

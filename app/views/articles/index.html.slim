@@ -18,27 +18,17 @@
 .contents.d-flex.justify-content-end.vh-100
   / leftcontents
   .left-content.w-50
-    - @articles.each do |article|
+    - @articles.each_with_index do |article, i|
       .article.card.h-100
         - if article.images.count > 0
           = image_tag article.images.first.variant(resize: "500x400").processed, class: "article-img img-fluid shadow-sm"
           .article-description.card-body
             h5.card-title 
-              = article.title
+              = article.title.truncate(10, omission: '・・・')
             p.card-text 
               = article.body.truncate(250, omission: '・・・')
             = link_to "続きを読む", article_path(article), class: "btn btn-outline-dark rounded-pill float-right"
-    
-    / .article.card.h-100
-    /   / - if @article.images.count > 0
-    /   / = image_tag @article.images.first.variant(resize: "500x400").processed, class: "article-img img-fluid shadow-sm"
-    /   .article-description.card-body
-    /     h5.card-title 
-    /       = @article.title  
-    /     p.card-text 
-    /       = @article.body.truncate(250, omission: '・・・')
-    /     = link_to "続きを読む", article_path(article), class: "btn btn-outline-dark rounded-pill float-right"
-
+      - break
   / rightcontents
   .right-content.w-50.overflow-auto.vh-100
     - @articles.each do |article|
