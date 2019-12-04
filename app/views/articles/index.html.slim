@@ -10,6 +10,8 @@
           = link_to "新規登録", new_user_registration_path, class: "nav-link text-white"
       - else 
         li.nav-item
+          = link_to "マイページ", user_path(current_user), class: "nav-link text-white"
+        li.nav-item
           = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link text-white"
 / ヘッダーここまで
 
@@ -21,12 +23,12 @@
     - @articles.each_with_index do |article, i|
       .article.card.h-100
         - if article.images.count > 0
-          = image_tag article.images.first.variant(resize: "500x400").processed, class: "article-img img-fluid shadow-sm"
+          = image_tag article.images.first.variant(resize: "400x400").processed, class: "article-img img-fluid shadow-sm"
           .article-description.card-body
             h5.card-title 
               = article.title.truncate(10, omission: '・・・')
             p.card-text 
-              = article.body.truncate(250, omission: '・・・')
+              = article.body.truncate(180, omission: '・・・')
             = link_to "続きを読む", article_path(article), class: "btn btn-outline-dark rounded-pill float-right"
       - break
   / rightcontents
