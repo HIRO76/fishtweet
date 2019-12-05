@@ -21,16 +21,16 @@
           = link_to article_path(article), class: "text-decoration-none text-reset" do
             - if article.images.count > 0
               = image_tag article.images.first.variant(resize: "500x400").processed, class: "card-img-top"
-              .card-body
-                h5.card-title
-                  = article.title
-                p.card-text
-                  = article.description
-                p.card-text
-                  = article.body.truncate(200, omission: '・・・')
-                .btn.d-flex.justify-content-end
-                  = link_to "編集する", edit_article_path, class: "btn btn-outline-dark rounded-pill"
-                  = link_to "削除する", "#", method: :delete, class: "btn btn-outline-dark rounded-pill ml-2"
+            .card-body
+              h5.card-title
+                = article.title
+              p.card-text
+                = article.description
+              p.card-text
+                = article.body.truncate(200, omission: '・・・')
+              .btn.d-flex.justify-content-end
+                = link_to "編集する", edit_article_path(article), class: "btn btn-outline-dark rounded-pill"
+                = link_to "削除する", article_path(article), method: :delete, class: "btn btn-outline-dark rounded-pill ml-2"
 
 / フッターここから
 .footer-copyright.text-center.py-2.text-white.bg-dark.fixed-bottom © 2019 Copyright

@@ -1,2 +1,54 @@
-h1 Articles#edit
-p Find me in app/views/articles/edit.html.slim
+/ ヘッダーここから
+.header-bg.sticky-top
+  .header.navbar
+    = link_to "Fishtweet", root_path, class: "my-2 h3 text-white text-decoration-none" 
+    ul.nav
+      - unless user_signed_in?
+        li.nav-item
+          = link_to "ログイン", new_user_session_path, class: "nav-link text-white" 
+        li.nav-item 
+          = link_to "記事一覧", new_user_registration_path, class: "nav-link text-white"
+      - else
+        li.nav-item
+          = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link text-white"
+/ ヘッダーここまで
+
+= form_with model: @article, local: true do |f|
+  .container.mt-3
+    .form-group
+      = f.label :title, 'タイトル'
+      = f.text_field :title, class: 'form-control' 
+    .form-group
+      = f.label :description, '釣行データ'
+      = f.text_area :description, class: 'form-control'
+    .form-group
+      = f.label :body, '本文'
+      = f.text_area :body, class: 'form-control form-control-lg body'
+    .form-group
+      = f.label :images, '画像'
+      = f.file_field :images, multiple: true, class: 'form-control-file' 
+    .images-box.d-flex.justify-content-around
+      p 
+        | 登録中画像 
+        br
+        / |（削除したい画像にチェックを入れてください）
+      / = button_to "画像削除", images_destroy 
+      - @images.each do |image| 
+        .box
+          / = button_to "画像削除", images_destroy(@images)
+          / = f.submit "画像削除", images_destroy
+          = image_tag image.variant(resize: "150x150").processed
+            / = f.check_box :images, multiple: true, class: 'form-control-file mb-3' 
+
+  / フッターここから
+  .footer-bg
+    .footer.page-footer.font-small.pt-3.fixed-bottom
+      .container
+        ul.list-unstyled.list-inline.text-center.py-3
+          li.list-inline-item.text-white
+            h5.mb-1.h5 enjoy fishing
+          li.list-inline-item.text-white
+            = f.submit "update!!", class: "btn btn-outline-light btn-lg rounded-pill" 
+
+      .footer-copyright.text-center.py-2.text-white.bg-dark © 2019 Copyright
+/ フッターここまで
