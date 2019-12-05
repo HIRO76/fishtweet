@@ -29,7 +29,7 @@
                 p.card-text
                   = article.body.truncate(200, omission: '・・・')
                 .btn.d-flex.justify-content-end
-                  = link_to "編集する", edit_article_path, class: "btn btn-outline-dark rounded-pill"
+                  = link_to "編集する", edit_article_path(article), class: "btn btn-outline-dark rounded-pill"
                   = link_to "削除する", "#", method: :delete, class: "btn btn-outline-dark rounded-pill ml-2"
 
 / フッターここから
