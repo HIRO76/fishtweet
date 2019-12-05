@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit]
   before_action :move_to_index, except: [:index, :show]
+  before_action :set_name, only: [:index, :show, :edit]
 
   helper_method :images_destroy
 
@@ -65,6 +66,10 @@ class ArticlesController < ApplicationController
 
   def set_article
     @article = Article.find(params[:id])
+  end
+
+  def set_name
+    @nickname = current_user.nickname
   end
 
   def article_params
