@@ -1,2 +1,37 @@
-h1 Users#show
-p Find me in app/views/users/show.html.slim
+/ ヘッダーここから
+.header-bg.sticky-top
+  .header.navbar
+    = link_to "Fishtweet", root_path, class: "my-2 h3 text-white text-decoration-none" 
+    ul.nav
+      - unless user_signed_in? 
+        li.nav-item
+          = link_to "ログイン", new_user_session_path, class: "nav-link text-white" 
+        li.nav-item 
+          = link_to "記事一覧", new_user_registration_path, class: "nav-link text-white"
+      - else
+        li.nav-item
+          = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link text-white"
+/ ヘッダーここまで
+
+.container
+  .row.m-5
+    - @articles.each do |article|
+      .col.col-6.mb-5
+        .card
+          = link_to article_path(article), class: "text-decoration-none text-reset" do
+            - if article.images.count > 0
+              = image_tag article.images.first.variant(resize: "500x400").processed, class: "card-img-top"
+              .card-body
+                h5.card-title
+                  = article.title
+                p.card-text
+                  = article.description
+                p.card-text
+                  = article.body.truncate(200, omission: '・・・')
+                .btn.d-flex.justify-content-end
+                  = link_to "編集する", edit_article_path, class: "btn btn-outline-dark rounded-pill"
+                  = link_to "削除する", "#", method: :delete, class: "btn btn-outline-dark rounded-pill ml-2"
+
+/ フッターここから
+.footer-copyright.text-center.py-2.text-white.bg-dark.fixed-bottom © 2019 Copyright
+/ フッターここまで

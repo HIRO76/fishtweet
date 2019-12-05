@@ -3,28 +3,29 @@
   .header.navbar
     = link_to "Fishtweet", root_path, class: "my-2 h3 text-white text-decoration-none" 
     ul.nav
-      li.nav-item
-        = link_to "ログイン", "#", class: "nav-link text-white" 
-      li.nav-item
-        = link_to "ログアウト", "#", class: "nav-link text-white"
-      li.nav-item 
-        = link_to "記事一覧", "#", class: "nav-link text-white"
+      - unless user_signed_in? 
+        li.nav-item
+          = link_to "ログイン", new_user_session_path, class: "nav-link text-white" 
+        li.nav-item 
+          = link_to "記事一覧", new_user_registration_path, class: "nav-link text-white"
+      - else
+        li.nav-item
+          = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link text-white"
 / ヘッダーここまで
 
-
 .container
-  .article-top.carousel.slide id="carouselExampleControls" data-ride="carousel"
+  .article-top.carousel.slide id="carouselExampleSlidesOnly carousel slide" data-ride="carousel"
     .carousel-inner.mt-5.mb-2.text-center
       - @article.images.each do |image|
-        = image_tag image.variant(resize: "700x500").processed, class: "img-fluid"
+          = image_tag image.variant(resize: "700x500").processed
   .container.article-index.mb-5.w-75.p-0
-    .article-title.mb-2 
-      = @article.title
-    .article-description.mb-2 
+    .article-title.mb-2.py-2 
+      h3
+        = @article.title
+    .article-description.mb-2.py-2
       = @article.description
-    .article-body 
+    .article-body.py-2
       = @article.body
-
 
 / フッターここから
 .footer-copyright.text-center.py-2.text-white.bg-dark.fixed-bottom © 2019 Copyright

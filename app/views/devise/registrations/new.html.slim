@@ -1,0 +1,48 @@
+/ ヘッダーここから
+.header-bg.sticky-top
+  .header.navbar
+    = link_to "Fishtweet", root_path, class: "my-2 h3 text-white text-decoration-none" 
+/ ヘッダーここまで
+
+.container.text-center.w-50
+  h2.m-5
+    | 新規登録
+  = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+    = render "devise/shared/error_messages", resource: resource
+    .field.m-3.form-group.form-row
+      = f.label :nickname
+      em 
+        | (10 characters maxmum)
+      br
+      = f.text_field :nickname, autofocus: true, autocomplete: "nickname", maxlength: "10", class: "form-control rounded-pill"
+    .field.m-3.form-group.form-row
+      = f.label :email
+      br
+      = f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control rounded-pill"
+    .field.m-3.form-group.form-row
+      = f.label :password
+      - if @minimum_password_length
+        em
+          | (
+          = @minimum_password_length
+          |  characters minimum)
+      br
+      = f.password_field :password, autocomplete: "new-password", class: "form-control rounded-pill"
+    .field.m-3.form-group.form-row
+      = f.label :password_confirmation
+      br
+      = f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control rounded-pill"
+    .actions.m-3
+      = f.submit "新規登録", class: "btn btn-outline-primary rounded-pill"
+  = render "devise/shared/links"
+
+/ フッターここから
+.footer-bg
+  .footer.page-footer.font-small.pt-5.fixed-bottom
+    .container
+      ul.list-unstyled.list-inline.text-center.py-3
+        li.list-inline-item.text-white
+          h5.mb-3.h5 enjoy fishing
+
+    .footer-copyright.text-center.py-2.text-white.bg-dark © 2019 Copyright
+/ フッターここまで
