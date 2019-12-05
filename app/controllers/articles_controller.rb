@@ -2,6 +2,9 @@ class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit]
   before_action :move_to_index, except: [:index, :show]
 
+  helper_method :images_destroy
+
+
   def index
     @articles = Article.limit(10).order(created_at: :desc)
   end
@@ -10,6 +13,16 @@ class ArticlesController < ApplicationController
   end
 
   def edit
+    @images = @article.images
+  end
+
+  def update
+    @article = Article.find(params[:id])
+    if @article.update(article_params)
+      redirect_to @article
+    else 
+      render "edit"
+    end
   end
 
   def new
@@ -25,6 +38,19 @@ class ArticlesController < ApplicationController
       render "new"
     end
   end
+
+  def destroy
+  end
+
+
+  # def images_destroy
+  #   # params[:album][:image_ids].each do |image_id|
+  #   #   image = @album.images.find(image_id)
+  #   #   image.purge
+  #   # end
+  #   @images = @article.images
+  #   @images.purge
+  # end
 
   private 
 

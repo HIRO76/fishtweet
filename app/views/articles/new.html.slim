@@ -14,8 +14,8 @@
 / ヘッダーここまで
 
 = form_with model: @article, local: true do |f|
-  .container.mt-5.
-    .form-groupzzzz
+  .container.mt-3.
+    .form-group
       = f.label :title, 'タイトル'
       = f.text_field :title, class: 'form-control' 
     .form-group
@@ -23,7 +23,7 @@
       = f.text_area :description, class: 'form-control'
     .form-group
       = f.label :body, '本文'
-      = f.text_area :body, class: 'form-control form-control-lg'
+      = f.text_area :body, class: 'form-control form-control-lg body'
     .form-group
       = f.label :images, '画像'
       = f.file_field :images, multiple: true, class: 'form-control-file'
@@ -34,7 +34,7 @@
       .container
         ul.list-unstyled.list-inline.text-center.py-3
           li.list-inline-item.text-white
-            h5.mb-1.h5 Register for free
+            h5.mb-1.h5 enjoy fishing
           li.list-inline-item.text-white
             = f.submit "POST!!", class: "btn btn-outline-light btn-lg rounded-pill" 
 
