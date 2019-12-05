@@ -40,6 +40,11 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
+    article = Article.find(params[:id])
+    if article.user_id === current_user.id
+      article.destroy
+      redirect_to controller: "users", action: "show"
+    end
   end
 
 
