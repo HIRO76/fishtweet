@@ -22,9 +22,12 @@
     .article-title.mb-2.py-2 
       h3
         = @article.title
+    .user-name
+      h5
+        = @article.user.nickname
     .article-description.mb-2.py-2
       = @article.description
-    .article-body.py-2
+    .article-body.py-2.text-justify.text-wrap.text-break 
       = @article.body
 
 / フッターここから
