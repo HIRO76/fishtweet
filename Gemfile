@@ -70,3 +70,4 @@ gem 'jquery-rails'
 gem 'font-awesome-sass'
 gem "mini_magick"
 gem 'rails-i18n'
+gem 'kaminari', '~> 0.17.0'
