@@ -21,7 +21,7 @@
   / leftcontents
   .left-content.w-50
     - @articles.each_with_index do |article, i|
-      .article.card.h-100
+      .article.card.h-100 id="append_to"
         - if article.images.count > 0
           = image_tag article.images.first.variant(resize: "450x400").processed, class: "article-img img-fluid shadow-sm"
           .article-description.card-body
@@ -45,6 +45,8 @@
             .article-list-description.card-body
               h5.card-title
                 = article.title
+    .pagenate.font-weight-bold.text-monospace.mx-auto.mb-5.d-flex.justify-content-center id="page"
+      = paginate(@articles)
 
     .archive.m-5 
       h5 アーカイブ
@@ -82,7 +84,8 @@
           h5.mb-1.h5 enjoy fishing
         li.list-inline-item.text-white
           = link_to new_article_path do
-            .btn.btn-outline-light.btn-lg.rounded-pill POST!
+            .btn.btn-outline-light.btn-lg.rounded-pill 投稿する
 
     .footer-copyright.text-center.py-2.text-white.bg-dark © 2019 Copyright
 / フッターここまで
+

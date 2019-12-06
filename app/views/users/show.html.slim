@@ -33,7 +33,8 @@
               .btn.d-flex.justify-content-end
                 = link_to "編集する", edit_article_path(article), class: "btn btn-outline-dark rounded-pill"
                 = link_to "削除する", article_path(article), method: :delete, class: "btn btn-outline-dark rounded-pill ml-2"
-
+    .pagenation.font-weight-bold.text-monospace.mx-auto.mb-5
+      = paginate(@articles)
 / フッターここから
 .footer-copyright.text-center.py-2.text-white.bg-dark.fixed-bottom © 2019 Copyright
 / フッターここまで
