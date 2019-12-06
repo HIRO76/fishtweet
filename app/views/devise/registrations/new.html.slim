@@ -12,8 +12,8 @@
     .field.m-3.form-group.form-row
       = f.label :nickname
       em 
-        | (10 characters maxmum)
-      br
+        | (10文字以内で入力してください)
+      br 
       = f.text_field :nickname, autofocus: true, autocomplete: "nickname", maxlength: "10", class: "form-control rounded-pill"
     .field.m-3.form-group.form-row
       = f.label :email
@@ -25,7 +25,7 @@
         em
           | (
           = @minimum_password_length
-          |  characters minimum)
+          | 文字以内で入力してください)
       br
       = f.password_field :password, autocomplete: "new-password", class: "form-control rounded-pill"
     .field.m-3.form-group.form-row
@@ -34,7 +34,7 @@
       = f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control rounded-pill"
     .actions.m-3
       = f.submit "新規登録", class: "btn btn-outline-primary rounded-pill"
-  = render "devise/shared/links"
+  / = render "devise/shared/links"
 
 / フッターここから
 .footer-bg
