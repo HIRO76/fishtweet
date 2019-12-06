@@ -7,8 +7,10 @@
         li.nav-item
           = link_to "ログイン", new_user_session_path, class: "nav-link text-white" 
         li.nav-item 
-          = link_to "記事一覧", new_user_registration_path, class: "nav-link text-white"
+          = link_to "新規登録", new_user_registration_path, class: "nav-link text-white"
       - else
+        li.nav-item
+          = link_to "ユーザー編集", edit_user_registration_path, class: "nav-link text-white"
         li.nav-item
           = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link text-white"
 / ヘッダーここまで
@@ -25,7 +27,7 @@
               h5.card-title
                 = article.title
               p.card-text
-                = article.description
+                = article.user.nickname
               p.card-text
                 = article.body.truncate(200, omission: '・・・')
               .btn.d-flex.justify-content-end

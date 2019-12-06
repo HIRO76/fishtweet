@@ -1,12 +1,13 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit]
   before_action :move_to_index, except: [:index, :show]
+  # before_action :set_name, only: [:index, :show, :edit]
 
   helper_method :images_destroy
 
 
   def index
-    @articles = Article.limit(10).order(created_at: :desc)
+    @articles = Article.includes(:user).limit(10).order(created_at: :desc)
   end
 
   def show
@@ -66,6 +67,11 @@ class ArticlesController < ApplicationController
   def set_article
     @article = Article.find(params[:id])
   end
+
+  # def set_name
+  #   # @article =  Article.find(params[:id])
+  #   @nickname = User.find(@article.user_id)
+  # end
 
   def article_params
     params.require(:article).permit(:title, :description, :body, images: []).merge(user_id: current_user.id)
