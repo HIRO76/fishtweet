@@ -47,7 +47,6 @@ class ArticlesController < ApplicationController
     end
   end
 
-
   # def images_destroy
   #   # params[:album][:image_ids].each do |image_id|
   #   #   image = @album.images.find(image_id)
