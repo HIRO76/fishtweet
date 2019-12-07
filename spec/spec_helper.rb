@@ -14,6 +14,7 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 require 'capybara/rspec'
+require 'faker'
 # require 'capybara/rails'
 RSpec.configure do |config|
   config.before(:each, type: :system) do 

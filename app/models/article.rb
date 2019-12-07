@@ -3,9 +3,9 @@ class Article < ApplicationRecord
   has_many :comments, dependent: :destroy
   belongs_to :user
 
-  validates :title, presence: true { message: "タイトルを入力してください" }
-  validates :body, presence: true { message: "記事を入力してください" }
-  validates :images_presence
+  validates :title, presence: true 
+  validates :body, presence: true
+  # validates :images_presence
 
   def images_presence
     if images.attached?
