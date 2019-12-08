@@ -4,7 +4,6 @@ class ArticlesController < ApplicationController
 
   helper_method :images_destroy
 
-
   def index
     @articles = Article.includes(:user).order(created_at: :desc).page(params[:page]).per(10)
   end
@@ -19,7 +18,7 @@ class ArticlesController < ApplicationController
   def update
     @article = Article.find(params[:id])
     if @article.update(article_params)
-      redirect_to @article
+      redirect_to @article, notice: '更新しました.'
     else 
       render "edit"
     end
@@ -33,8 +32,9 @@ class ArticlesController < ApplicationController
     # @article = Article.create(title: article_params[:title], description: article_params[:description], body: article_params[:body], images: article_params[images: []])
     @article = Article.new(article_params)
     if @article.save
-      redirect_to @article
+      redirect_to @article, notice: "記事を投稿しました。"
     else
+      flash.now[:alert] = '記事を入力してください。'
       render "new"
     end
   end
