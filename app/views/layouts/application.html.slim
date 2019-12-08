@@ -8,4 +8,8 @@ html lang="ja"
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body.vw-100.vh-100
+    .nontifications
+      - flash.each do |key, valu|
+        .alert.alert-primary.mb-0.text-center
+          = content_tag(:div, valu, class: key)
     = yield
