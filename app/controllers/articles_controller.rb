@@ -4,7 +4,6 @@ class ArticlesController < ApplicationController
 
   helper_method :images_destroy
 
-
   def index
     @articles = Article.includes(:user).order(created_at: :desc).page(params[:page]).per(10)
   end
