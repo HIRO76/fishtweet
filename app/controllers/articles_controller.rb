@@ -1,11 +1,11 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit]
   before_action :move_to_index, except: [:index, :show]
-
   helper_method :images_destroy
 
   def index
     @articles = Article.includes(:user).order(created_at: :desc).page(params[:page]).per(10)
+    @article = Article.last
   end
 
   def show
