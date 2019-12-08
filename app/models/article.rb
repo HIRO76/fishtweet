@@ -5,7 +5,7 @@ class Article < ApplicationRecord
 
   validates :title, presence: true 
   validates :body, presence: true
-  # validates :images_presence
+  validates :images_presence, presence: true
 
   def images_presence
     if images.attached?
