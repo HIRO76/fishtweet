@@ -53,5 +53,5 @@
 - belongs_to :article
 
 ## ERimage
-[![Image from Gyazo](https://i.gyazo.com/babee840ede075263c93a63836a45f83.jpg)](https://gyazo.com/babee840ede075263c93a63836a45f83)
+[![Image from Gyazo](https://i.gyazo.com/42e72ff0719c93820cdcdc68e572fd26.png)](https://gyazo.com/42e72ff0719c93820cdcdc68e572fd26)
 ------------------------
