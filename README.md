@@ -53,5 +53,5 @@
 - belongs_to :article
 
 ## ERimage
-https://www.dropbox.com/s/bqxnwc6wn7bf85f/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202019-12-09%2012.21.32.png?dl=0
+<a href="https://gyazo.com/babee840ede075263c93a63836a45f83"><img src="https://i.gyazo.com/babee840ede075263c93a63836a45f83.jpg" alt="Image from Gyazo" width="766"/></a>
 ------------------------
