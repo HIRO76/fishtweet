@@ -87,4 +87,4 @@ Top＆一覧画面
 
 
 
-<a href="https://gyazo.com/5a5f50c2d21a3f3554a00598bf8dc977"><img src="https://i.gyazo.com/5a5f50c2d21a3f3554a00598bf8dc977.jpg" alt="Image from Gyazo" width="858"/></a>
+<a href="https://gyazo.com/5a5f50c2d21a3f3554a00598bf8dc977"><img src="https://i.gyazo.com/5a5f50c2d21a3f3554a00598bf8dc977.jpg" alt="Image from Gyazo" width=""/></a>
