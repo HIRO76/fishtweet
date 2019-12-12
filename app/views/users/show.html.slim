@@ -19,7 +19,7 @@
   .row.m-5
     - @articles.each do |article|
       .col.col-6.mb-5
-        .card
+        .card.border-0.shadow-sm
           = link_to article_path(article), class: "text-decoration-none text-reset" do
             - if article.images.count > 0
               = image_tag article.images.first.variant(resize: "500x400").processed, class: "card-img-top"
