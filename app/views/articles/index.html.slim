@@ -25,7 +25,7 @@
       .article-description.card-body.p-1
         h5.card-title.m-0
           = @article.title.truncate(10, omission: '…')
-        p.card-text.m-0
+        p.card-text.m-0.py-1
           = @article.user.nickname
         p.card-text
           = @article.body.truncate(100, omission: '…')
