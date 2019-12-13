@@ -71,6 +71,10 @@
 #### Association
 - belongs_to :article
 
+## fishtweet機能説明動画
+<iframe width="560" height="315" src="https://www.youtube.com/embed/e9IvukLHlGw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+https://youtu.be/e9IvukLHlGw
+
 ## ERimage
 [![Image from Gyazo](https://i.gyazo.com/42e72ff0719c93820cdcdc68e572fd26.png)](https://gyazo.com/42e72ff0719c93820cdcdc68e572fd26)
 ------------------------
