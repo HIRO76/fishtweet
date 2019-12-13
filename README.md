@@ -74,7 +74,7 @@
 ***
 
 ## fishtweet機能説明動画
-<a href="https://youtu.be/e9IvukLHlGw" target="new">説明動画</a>
+https://youtu.be/e9IvukLHlGw
 ***
 
 ## ERimage
