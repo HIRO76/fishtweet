@@ -71,20 +71,28 @@
 #### Association
 - belongs_to :article
 
+------------------------
+
 ## fishtweet機能説明動画
-<iframe width="560" height="315" src="https://www.youtube.com/embed/e9IvukLHlGw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 https://youtu.be/e9IvukLHlGw
 
+------------------------
+
 ## ERimage
-[![Image from Gyazo](https://i.gyazo.com/42e72ff0719c93820cdcdc68e572fd26.png)](https://gyazo.com/42e72ff0719c93820cdcdc68e572fd26)
+<img src="スクリーンショット 2019-12-09 12.32.28.png" alt="Image from Gyazo" width="781"/>
+
 ------------------------
 
 ## Appimage
 Top＆一覧画面
 [![Image from Gyazo](https://i.gyazo.com/d400df08b035769b1e3aa455e73d33af.jpg)](https://gyazo.com/d400df08b035769b1e3aa455e73d33af)
 
+------------------------
+
 詳細ページ
 [![Image from Gyazo](https://i.gyazo.com/e21e767166dddda9493a7e180c251526.jpg)](https://gyazo.com/e21e767166dddda9493a7e180c251526)
+
+------------------------
 
 マイページ（１０件表示）
 [![Image from Gyazo](https://i.gyazo.com/5a5f50c2d21a3f3554a00598bf8dc977.jpg)](https://gyazo.com/5a5f50c2d21a3f3554a00598bf8dc977)
