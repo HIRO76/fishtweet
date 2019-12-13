@@ -74,24 +74,20 @@
 ***
 
 ## fishtweet機能説明動画
-https://youtu.be/e9IvukLHlGw
-
+<a href="https://youtu.be/e9IvukLHlGw" target="new">説明動画</a>
 ***
 
 ## ERimage
 [![Image from Gyazo](https://i.gyazo.com/7a2d598451f897ad6d9d5624c434b83e.png)](https://gyazo.com/7a2d598451f897ad6d9d5624c434b83e)
-
 ***
 
 ## Appimage
 Top＆一覧画面
 [![Image from Gyazo](https://i.gyazo.com/d400df08b035769b1e3aa455e73d33af.jpg)](https://gyazo.com/d400df08b035769b1e3aa455e73d33af)
-
 ***
 
 詳細ページ
 [![Image from Gyazo](https://i.gyazo.com/e21e767166dddda9493a7e180c251526.jpg)](https://gyazo.com/e21e767166dddda9493a7e180c251526)
-
 ***
 
 マイページ（１０件表示）
