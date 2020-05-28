@@ -74,4 +74,4 @@ gem 'font-awesome-sass'
 gem "mini_magick"
 gem 'rails-i18n'
 gem 'devise-i18n-views'
-gem 'kaminari', '~> 0.17.0'
+gem 'kaminari', '~> 1.2.1'
